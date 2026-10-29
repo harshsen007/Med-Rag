@@ -10,3 +10,8 @@ wheels/
 .venv
 
 .env
+
+Input_docs
+Planning_docs
+Decisions
+.cursor
