@@ -45,7 +45,7 @@ class Settings(BaseSettings):
     FUSION: str = Field(default="rrf")
 
     # LLM
-    LLM_MODEL: str = Field(default="nvidia/nemotron-ultra-253b-v1")
+    LLM_MODEL: str = Field(default="nvidia/nemotron-3-ultra-550b-a55b")
     LLM_BASE_URL: str = Field(default="https://integrate.api.nvidia.com/v1")
     TEMPERATURE: float = Field(default=0.2)
     MAX_TOKENS: int = Field(default=2048)

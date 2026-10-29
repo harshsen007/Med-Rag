@@ -4,13 +4,20 @@ Run with:
     uv run python demo_pipeline.py
 """
 
+import sys
 from pathlib import Path
+
+# Ensure project root is in sys.path
+_ROOT = Path(__file__).resolve().parent.parent
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
+
 from src.parsing import parse_file, count_images
 from src.cleaning import clean_pages
 from src.chunking import chunk_document
 
 def main():
-    pdf_path = Path("Input_docs/clinical_medicine_ashok_chandra.pdf")
+    pdf_path = _ROOT / "Input_docs/clinical_medicine_ashok_chandra.pdf"
     if not pdf_path.exists():
         print(f"Error: {pdf_path} not found.")
         return

@@ -12,13 +12,15 @@ Examples:
   python -m src.main inspect Input_docs/clinical_medicine.pdf
   python -m src.main ask "What are the symptoms of pneumonia?"
 """
-
+ 
 import sys
 import statistics
 from pathlib import Path
 
 from src.config import settings
-from src import ingest, retrieve, generate, parsing, cleaning, chunking
+from src import ingest, parsing, cleaning, chunking
+from src.retrieve import retrieve
+from src.generate import answer
 
 
 def cmd_ingest(args: list[str]):
@@ -92,8 +94,9 @@ def cmd_ask(args: list[str]):
     question = " ".join(args)
     print(f"\nQuestion: {question}\n")
 
+
     # Retrieve
-    chunks = retrieve.retrieve(question)
+    chunks = retrieve(question)
 
     print(f"── Retrieved {len(chunks)} chunk(s) ────────────────────")
     for i, c in enumerate(chunks, start=1):
@@ -104,7 +107,7 @@ def cmd_ask(args: list[str]):
     print()
 
     # Generate
-    answer_text = generate.answer(question, chunks=chunks)
+    answer_text = answer(question, chunks=chunks)
     print("── Answer ───────────────────────────────")
     print(answer_text)
 
