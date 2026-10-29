@@ -9,6 +9,7 @@ Available commands:
     uv run bareback embedding <text_or_file_path>
     uv run bareback ingest <file_path>
     uv run bareback retrieve [<file_path>] <query>
+    uv run bareback generate [--stream] [<file_path>] <query>
 
 Examples:
     uv run bareback parsing Input_docs/clinical_rag_symptom_matrix.pdf
@@ -19,6 +20,8 @@ Examples:
     uv run bareback ingest Input_docs/clinical_rag_symptom_matrix.pdf
     uv run bareback retrieve "What are the causes of hemoptysis?"
     uv run bareback retrieve Input_docs/clinical_rag_symptom_matrix.pdf "What are the causes of hemoptysis?"
+    uv run bareback generate "What are the causes of hemoptysis?"
+    uv run bareback generate --stream "What are the causes of hemoptysis?"
 """
 
 import sys
@@ -385,6 +388,219 @@ def run_retrieve(args: list[str]):
     print(json.dumps(output, indent=2, ensure_ascii=False))
 
 
+# ── 7. GENERATE (LLM) ─────────────────────────────────────────────────────────
+
+def run_generate(args: list[str]):
+    from openai import OpenAI
+    from src.config import settings
+    from src.prompts import SYSTEM_PROMPT, USER_PROMPT_TEMPLATE
+    from src import vector_store
+
+    if not args:
+        print(
+            json.dumps(
+                {
+                    "error": "Usage: bareback generate [--stream] [<file_path>] <query>",
+                    "examples": [
+                        'bareback generate "What are the causes of hemoptysis?"',
+                        'bareback generate --stream "What are the causes of hemoptysis?"',
+                        'bareback generate Input_docs/clinical_rag_symptom_matrix.pdf "What are the causes of hemoptysis?"',
+                    ],
+                },
+                indent=2,
+            )
+        )
+        sys.exit(1)
+
+    # Check for stream flag
+    stream_mode = False
+    clean_args = []
+    for arg in args:
+        if arg in ("--stream", "-s", "--streaming"):
+            stream_mode = True
+        else:
+            clean_args.append(arg)
+
+    if not clean_args:
+        print(json.dumps({"error": "Missing query for generate command."}, indent=2))
+        sys.exit(1)
+
+    # Check if first positional arg is a source file path
+    source_filter = None
+    first_arg = Path(clean_args[0])
+    if first_arg.exists() or first_arg.suffix.lower() in [".pdf", ".md", ".docx", ".html", ".htm", ".txt"]:
+        source_filter = first_arg.name
+        query = " ".join(clean_args[1:]).strip()
+        if not query:
+            print(json.dumps({"error": f"Missing query after file path '{clean_args[0]}'"}, indent=2))
+            sys.exit(1)
+    else:
+        query = " ".join(clean_args).strip()
+
+    # Step 1: Retrieve context chunks
+    with silence_stdout():
+        results = vector_store.search(
+            question=query,
+            mode=settings.SEARCH_MODE,
+            top_k=settings.TOP_K,
+            candidates=settings.CANDIDATES_PER_BRANCH,
+        )
+
+    if source_filter:
+        results = [c for c in results if c.get("source") == source_filter]
+
+    # Step 2: Format chunks for prompt
+    chunk_texts = []
+    for i, chunk in enumerate(results, start=1):
+        source = chunk.get("source", "unknown")
+        section = chunk.get("section", "")
+        pg_s = chunk.get("page_start")
+        pg_e = chunk.get("page_end")
+
+        if pg_s and pg_e and pg_s != pg_e:
+            page_label = f"p.{pg_s}-{pg_e}"
+        elif pg_s:
+            page_label = f"p.{pg_s}"
+        else:
+            page_label = "n/a"
+
+        header = f"[{i}] Source: {source} | Section: {section} | Page: {page_label}"
+        chunk_texts.append(f"{header}\n{chunk['text']}")
+
+    formatted_chunks = "\n\n---\n\n".join(chunk_texts)
+
+    # Step 3: Construct prompts
+    user_prompt = USER_PROMPT_TEMPLATE.format(
+        chunks=formatted_chunks,
+        question=query,
+    )
+
+    messages_payload = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": user_prompt},
+    ]
+
+    llm_call_config = {
+        "base_url": settings.LLM_BASE_URL,
+        "model": settings.LLM_MODEL,
+        "temperature": settings.TEMPERATURE,
+        "max_tokens": settings.MAX_TOKENS,
+        "stream": stream_mode,
+        "api_key_configured": bool(settings.NVIDIA_API_KEY),
+    }
+
+    client = OpenAI(
+        api_key=settings.NVIDIA_API_KEY,
+        base_url=settings.LLM_BASE_URL,
+    )
+
+    if not stream_mode:
+        # Non-streaming LLM invocation
+        response = client.chat.completions.create(
+            model=settings.LLM_MODEL,
+            messages=messages_payload,
+            temperature=settings.TEMPERATURE,
+            max_tokens=settings.MAX_TOKENS,
+        )
+
+        raw_response = response.model_dump()
+        answer_text = response.choices[0].message.content if response.choices else ""
+        reasoning_content = getattr(response.choices[0].message, "reasoning_content", None)
+
+        output = {
+            "command": "generate",
+            "input": {
+                "query": query,
+                "source_filter": source_filter,
+                "retrieved_chunks_count": len(results),
+            },
+            "llm_call": llm_call_config,
+            "prompts": {
+                "system_prompt": SYSTEM_PROMPT,
+                "formatted_context_passages": formatted_chunks,
+                "user_prompt": user_prompt,
+                "messages_payload": messages_payload,
+            },
+            "raw_response": raw_response,
+            "reasoning_content": reasoning_content,
+            "answer": answer_text,
+            "retrieved_chunks": results,
+        }
+    else:
+        # Streaming LLM invocation: deltas are streamed live to stderr for real-time viewing
+        sys.stderr.write(f"\n[bareback stream connecting to {settings.LLM_MODEL}...]\n")
+        sys.stderr.flush()
+
+        stream = client.chat.completions.create(
+            model=settings.LLM_MODEL,
+            messages=messages_payload,
+            temperature=settings.TEMPERATURE,
+            max_tokens=settings.MAX_TOKENS,
+            stream=True,
+        )
+
+        streamed_chunks = []
+        content_deltas = []
+        reasoning_deltas = []
+
+        for chunk in stream:
+            chunk_dict = chunk.model_dump()
+            streamed_chunks.append(chunk_dict)
+
+            if chunk.choices:
+                delta = chunk.choices[0].delta
+                r = getattr(delta, "reasoning_content", None)
+                c = getattr(delta, "content", None)
+                if r:
+                    reasoning_deltas.append(r)
+                    sys.stderr.write(r)
+                    sys.stderr.flush()
+                if c:
+                    content_deltas.append(c)
+                    sys.stderr.write(c)
+                    sys.stderr.flush()
+
+        sys.stderr.write("\n[stream complete]\n\n")
+        sys.stderr.flush()
+
+        raw_response_sample = {
+            "stream_chunk_count": len(streamed_chunks),
+            "first_chunk": streamed_chunks[0] if streamed_chunks else None,
+            "last_chunk": streamed_chunks[-1] if streamed_chunks else None,
+        }
+
+        assembled_answer = "".join(content_deltas)
+        assembled_reasoning = "".join(reasoning_deltas)
+
+        output = {
+            "command": "generate",
+            "input": {
+                "query": query,
+                "source_filter": source_filter,
+                "retrieved_chunks_count": len(results),
+            },
+            "llm_call": llm_call_config,
+            "prompts": {
+                "system_prompt": SYSTEM_PROMPT,
+                "formatted_context_passages": formatted_chunks,
+                "user_prompt": user_prompt,
+                "messages_payload": messages_payload,
+            },
+            "raw_response": raw_response_sample,
+            "stream_details": {
+                "total_streamed_chunks": len(streamed_chunks),
+                "reasoning_chunks_count": len(reasoning_deltas),
+                "content_chunks_count": len(content_deltas),
+                "content_deltas": content_deltas,
+            },
+            "reasoning_content": assembled_reasoning or None,
+            "answer": assembled_answer,
+            "retrieved_chunks": results,
+        }
+
+    print(json.dumps(output, indent=2, ensure_ascii=False))
+
+
 # ── DISPATCHER ───────────────────────────────────────────────────────────────
 
 def main():
@@ -400,6 +616,7 @@ def main():
                         "bareback embedding <text_or_file_path>",
                         "bareback ingest <file_path>",
                         "bareback retrieve [<file_path>] <query>",
+                        "bareback generate [--stream] [<file_path>] <query>",
                     ],
                 },
                 indent=2,
@@ -434,6 +651,8 @@ def main():
         run_ingest(rest[0])
     elif cmd in ("retrieve", "retreive"):
         run_retrieve(rest)
+    elif cmd in ("generate", "ask", "llm"):
+        run_generate(rest)
     else:
         print(
             json.dumps(
@@ -446,6 +665,7 @@ def main():
                         "embedding",
                         "ingest",
                         "retrieve",
+                        "generate",
                     ],
                 },
                 indent=2,

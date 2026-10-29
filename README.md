@@ -165,7 +165,22 @@ uv run python Scripts/bareback.py ingest Input_docs/clinical_rag_symptom_matrix.
 # 6. Inspect Retrieval (hybrid similarity search results & scores)
 uv run python Scripts/bareback.py retrieve "What are the causes of hemoptysis?"
 uv run python Scripts/bareback.py retrieve Input_docs/clinical_rag_symptom_matrix.pdf "What are the causes of hemoptysis?"
+
+# 7. Inspect LLM Generation & Prompts (prompts, raw API response, token usage)
+uv run python Scripts/bareback.py generate "What are the causes of hemoptysis?"
+uv run python Scripts/bareback.py generate Input_docs/clinical_rag_symptom_matrix.pdf "What are the causes of hemoptysis?"
+
+# 8. Inspect Live LLM Streaming (streams tokens in real-time to stderr, outputs JSON to stdout)
+uv run python Scripts/bareback.py generate --stream "What are the causes of hemoptysis?"
 ```
+
+#### What `bareback generate` Exposes:
+- **`llm_call`**: API endpoint (`base_url`), `model`, `temperature`, `max_tokens`, and stream configuration.
+- **`prompts`**: Exact clinical `system_prompt`, formatted passage block with source/page citations, and the interpolated `user_prompt`.
+- **`raw_response`**: Verbatim raw response object from the NVIDIA/OpenAI API (`id`, `usage`: prompt/completion/total tokens, `finish_reason`, and model metadata).
+- **`reasoning_content`**: Internal chain-of-thought tokens (when using reasoning models like Nemotron).
+- **`stream_details`**: Streaming chunk counts and token breakdown when `--stream` is enabled.
+- **`answer`**: Final grounded clinical answer text.
 
 ---
 
