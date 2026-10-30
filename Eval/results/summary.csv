@@ -1,0 +1,2 @@
+mode,questions,faithfulness,faithfulness_nan,context_precision,context_precision_nan,context_recall,context_recall_nan
+hybrid,1,0.8333333333333334,0,0.99999999998,0,1.0,0

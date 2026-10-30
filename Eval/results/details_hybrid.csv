@@ -1,0 +1,81 @@
+user_input,retrieved_contexts,response,reference,faithfulness,context_precision,context_recall,retrieved_chunks
+What are the classic presenting symptoms of acute coronary syndrome?,"['Section: **Chapter 12: System Diagnostics & Syndrome Arrays**\n\nPage 20 of 22\n\n_This is for informational purposes only. For medical advice or diagnosis, consult a professional. AI responses may include mistakes._\nClinical RAG Mock Dataset — Reference Manual\n\n|**Condition /**<br>**Presentation**|**Presenting Symptoms**|**Probable Cause**|**Standard Solution**|\n|---|---|---|---|\n|Acute Coronary<br>Syndrome (ACS)|Substernal crushing chest<br>pain, radiating to left<br>arm/jaw, diaphoresis,<br>dyspnea.|Myocardial ischemia or<br>infarction due to<br>coronary artery<br>occlusion.|Aspirin, nitroglycerin,<br>supplemental O2 if hypoxic,<br>emergent cardiac<br>catheterization (PCI).|\n|Pulmonary<br>Embolism (PE)|Sudden-onset pleuritic chest<br>pain, tachypnea,<br>tachycardia, hemoptysis,<br>hypoxemia.|Thromboembolism<br>obstructing the<br>pulmonary arterial bed.|Anticoagulation (LMWH,<br>Unfractionated Heparin),<br>systemic thrombolysis if<br>hemodynamically unstable.|\n|Diabetic|Polyuria, polydipsia, nausea,|Severe insulin|Aggressive IV fluid|\n|Ketoacidosis (DKA)|vomiting, Kussmaul<br>respirations, fruity breath<br>odor.|deficiency leading to<br>profound<br>hyperglycemia,<br>ketonemia, and<br>metabolic acidosis.|resuscitation (0.9% NaCl),<br>continuous IV insulin<br>infusion, potassium<br>replacement.|\n|Acute Bacterial<br>Meningitis|Fever, severe headache,<br>nuchal rigidity (stiff neck),<br>photophobia, altered mental<br>status.|Bacterial infection of the<br>leptomeninges (e.g., S.<br>pneumoniae, N.<br>meningitidis).|Emergent empiric IV<br>antibiotics (Ceftriaxone +<br>Vancomycin),<br>Dexamethasone.|', 'Section: **Chapter 6: System Diagnostics & Syndrome Arrays**\n\nThis section establishes the diagnostic boundaries and high-yield key text markers for RAG chunking verification within block sequence 6.\n\n|**Condition /**|**Presenting Symptoms**|**Probable Cause**|**Standard Solution**|\n|---|---|---|---|\n|**Presentation**||||\n|Acute Coronary|Substernal crushing chest|Myocardial ischemia or|Aspirin, nitroglycerin,|\n|Syndrome (ACS)|pain, radiating to left|infarction due to|supplemental O2 if hypoxic,|\n||arm/jaw, diaphoresis,|coronary artery|emergent cardiac|\n||dyspnea.|occlusion.|catheterization (PCI).|\n\nConfidential — For System Training & Evaluation Only\n\nPage 10 of 22\n\n_This is for informational purposes only. For medical advice or diagnosis, consult a professional. AI responses may include mistakes._\nClinical RAG Mock Dataset — Reference Manual', 'Section: **Chapter 5: System Diagnostics & Syndrome Arrays**\n\nPage 8 of 22\n\n_This is for informational purposes only. For medical advice or diagnosis, consult a professional. AI responses may include mistakes._\nClinical RAG Mock Dataset — Reference Manual\n\n|**Condition /**<br>**Presentation**|**Presenting Symptoms**|**Probable Cause**|**Standard Solution**|\n|---|---|---|---|\n|Acute Coronary<br>Syndrome (ACS)|Substernal crushing chest<br>pain, radiating to left<br>arm/jaw, diaphoresis,<br>dyspnea.|Myocardial ischemia or<br>infarction due to<br>coronary artery<br>occlusion.|Aspirin, nitroglycerin,<br>supplemental O2 if hypoxic,<br>emergent cardiac<br>catheterization (PCI).|\n|Pulmonary<br>Embolism (PE)|Sudden-onset pleuritic chest<br>pain, tachypnea,<br>tachycardia, hemoptysis,<br>hypoxemia.|Thromboembolism<br>obstructing the<br>pulmonary arterial bed.|Anticoagulation (LMWH,<br>Unfractionated Heparin),<br>systemic thrombolysis if<br>hemodynamically unstable.|\n|Diabetic|Polyuria, polydipsia, nausea,|Severe insulin|Aggressive IV fluid|\n|Ketoacidosis (DKA)|vomiting, Kussmaul<br>respirations, fruity breath<br>odor.|deficiency leading to<br>profound<br>hyperglycemia,<br>ketonemia, and<br>metabolic acidosis.|resuscitation (0.9% NaCl),<br>continuous IV insulin<br>infusion, potassium<br>replacement.|\n|Acute Bacterial<br>Meningitis|Fever, severe headache,<br>nuchal rigidity (stiff neck),<br>photophobia, altered mental<br>status.|Bacterial infection of the<br>leptomeninges (e.g., S.<br>pneumoniae, N.<br>meningitidis).|Emergent empiric IV<br>antibiotics (Ceftriaxone +<br>Vancomycin),<br>Dexamethasone.|', 'Section: **Chapter 3: System Diagnostics & Syndrome Arrays**\n\nThis section establishes the diagnostic boundaries and high-yield key text markers for RAG chunking verification within block sequence 3.\n\n|**Condition /**|**Presenting Symptoms**|**Probable Cause**|**Standard Solution**|\n|---|---|---|---|\n|**Presentation**||||\n|Acute Coronary|Substernal crushing chest|Myocardial ischemia or|Aspirin, nitroglycerin,|\n|Syndrome (ACS)|pain, radiating to left<br>arm/jaw, diaphoresis,<br>dyspnea.|infarction due to<br>coronary artery<br>occlusion.|supplemental O2 if hypoxic,<br>emergent cardiac<br>catheterization (PCI).|\n|Pulmonary|Sudden-onset pleuritic chest|Thromboembolism|Anticoagulation (LMWH,|\n|Embolism (PE)|pain, tachypnea,<br>tachycardia, hemoptysis,<br>hypoxemia.|obstructing the<br>pulmonary arterial bed.|Unfractionated Heparin),<br>systemic thrombolysis if<br>hemodynamically unstable.|\n\nConfidential — For System Training & Evaluation Only\n\nPage 5 of 22\n\n_This is for informational purposes only. For medical advice or diagnosis, consult a professional. AI responses may include mistakes._\nClinical RAG Mock Dataset — Reference Manual', 'Section: **Chapter 10: System Diagnostics & Syndrome Arrays**\n\nThis section establishes the diagnostic boundaries and high-yield key text markers for RAG chunking verification within block sequence 10.\n\n|**Condition /**|**Presenting Symptoms**|**Probable Cause**|**Standard Solution**|\n|---|---|---|---|\n|**Presentation**||||\n|Acute Coronary|Substernal crushing chest|Myocardial ischemia or|Aspirin, nitroglycerin,|\n|Syndrome (ACS)|pain, radiating to left<br>arm/jaw, diaphoresis,<br>dyspnea.|infarction due to<br>coronary artery<br>occlusion.|supplemental O2 if hypoxic,<br>emergent cardiac<br>catheterization (PCI).|\n|Pulmonary|Sudden-onset pleuritic chest|Thromboembolism|Anticoagulation (LMWH,|\n|Embolism (PE)|pain, tachypnea,<br>tachycardia, hemoptysis,<br>hypoxemia.|obstructing the<br>pulmonary arterial bed.|Unfractionated Heparin),<br>systemic thrombolysis if<br>hemodynamically unstable.|\n\nConfidential — For System Training & Evaluation Only\n\nPage 17 of 22\n\n_This is for informational purposes only. For medical advice or diagnosis, consult a professional. AI responses may include mistakes._\nClinical RAG Mock Dataset — Reference Manual']","The classic presenting symptoms of acute coronary syndrome (ACS) are substernal crushing chest pain radiating to the left arm or jaw, diaphoresis, and dyspnea [Source: clinical_rag_symptom_matrix.pdf, Section: Chapter 12: System Diagnostics & Syndrome Arrays, Page: p.20-21; Source: clinical_rag_symptom_matrix.pdf, Section: Chapter 6: System Diagnostics & Syndrome Arrays, Page: p.10; Source: clinical_rag_symptom_matrix.pdf, Section: Chapter 5: System Diagnostics & Syndrome Arrays, Page: p.8-9; Source: clinical_rag_symptom_matrix.pdf, Section: Chapter 3: System Diagnostics & Syndrome Arrays, Page: p.5; Source: clinical_rag_symptom_matrix.pdf, Section: Chapter 10: System Diagnostics & Syndrome Arrays, Page: p.17].
+
+This information is for reference only and not medical advice. Consult a qualified healthcare provider for clinical decisions.","Acute coronary syndrome presents with substernal crushing chest pain radiating to the left arm or jaw, diaphoresis, and dyspnea.",0.8333333333333334,0.99999999998,1.0,"Section: **Chapter 12: System Diagnostics & Syndrome Arrays**
+
+Page 20 of 22
+
+_This is for informational purposes only. For medical advice or diagnosis, consult a professional. AI responses may include mistakes._
+Clinical RAG Mock Dataset — Reference Manual
+
+|**Condition /**<br>**Presentation**|**Presenting Symptoms**|**Probable Cause**|**Standard Solution**|
+|---|---|---|---|
+|Acute Coronary<br>Syndrome (ACS)|Substernal crushing chest<br>pain, radiating to left<br>arm/jaw, diaphoresis,<br>dyspnea.|Myocardial ischemia or<br>infarction due to<br>coronary artery<br>occlusion.|Aspirin, nitroglycerin,<br>supplemental O2 if hypoxic,<br>emergent cardiac<br>catheterization (PCI).|
+|Pulmonary<br>Embolism (PE)|Sudden-onset pleuritic chest<br>pain, tachypnea,<br>tachycardia, hemoptysis,<br>hypoxemia.|Thromboembolism<br>obstructing the<br>pulmonary arterial bed.|Anticoagulation (LMWH,<br>Unfractionated Heparin),<br>systemic thrombolysis if<br>hemodynamically unstable.|
+|Diabetic|Polyuria, polydipsia, nausea,|Severe insulin|Aggressive IV fluid|
+|Ketoacidosis (DKA)|vomiting, Kussmaul<br>respirations, fruity breath<br>odor.|deficiency leading to<br>profound<br>hyperglycemia,<br>ketonemia, and<br>metabolic acidosis.|resuscitation (0.9% NaCl),<br>continuous IV insulin<br>infusion, potassium<br>replacement.|
+|Acute Bacterial<br>Meningitis|Fever, severe headache,<br>nuchal rigidity (stiff neck),<br>photophobia, altered mental<br>status.|Bacterial infection of the<br>leptomeninges (e.g., S.<br>pneumoniae, N.<br>meningitidis).|Emergent empiric IV<br>antibiotics (Ceftriaxone +<br>Vancomycin),<br>Dexamethasone.| ||| Section: **Chapter 6: System Diagnostics & Syndrome Arrays**
+
+This section establishes the diagnostic boundaries and high-yield key text markers for RAG chunking verification within block sequence 6.
+
+|**Condition /**|**Presenting Symptoms**|**Probable Cause**|**Standard Solution**|
+|---|---|---|---|
+|**Presentation**||||
+|Acute Coronary|Substernal crushing chest|Myocardial ischemia or|Aspirin, nitroglycerin,|
+|Syndrome (ACS)|pain, radiating to left|infarction due to|supplemental O2 if hypoxic,|
+||arm/jaw, diaphoresis,|coronary artery|emergent cardiac|
+||dyspnea.|occlusion.|catheterization (PCI).|
+
+Confidential — For System Training & Evaluation Only
+
+Page 10 of 22
+
+_This is for informational purposes only. For medical advice or diagnosis, consult a professional. AI responses may include mistakes._
+Clinical RAG Mock Dataset — Reference Manual ||| Section: **Chapter 5: System Diagnostics & Syndrome Arrays**
+
+Page 8 of 22
+
+_This is for informational purposes only. For medical advice or diagnosis, consult a professional. AI responses may include mistakes._
+Clinical RAG Mock Dataset — Reference Manual
+
+|**Condition /**<br>**Presentation**|**Presenting Symptoms**|**Probable Cause**|**Standard Solution**|
+|---|---|---|---|
+|Acute Coronary<br>Syndrome (ACS)|Substernal crushing chest<br>pain, radiating to left<br>arm/jaw, diaphoresis,<br>dyspnea.|Myocardial ischemia or<br>infarction due to<br>coronary artery<br>occlusion.|Aspirin, nitroglycerin,<br>supplemental O2 if hypoxic,<br>emergent cardiac<br>catheterization (PCI).|
+|Pulmonary<br>Embolism (PE)|Sudden-onset pleuritic chest<br>pain, tachypnea,<br>tachycardia, hemoptysis,<br>hypoxemia.|Thromboembolism<br>obstructing the<br>pulmonary arterial bed.|Anticoagulation (LMWH,<br>Unfractionated Heparin),<br>systemic thrombolysis if<br>hemodynamically unstable.|
+|Diabetic|Polyuria, polydipsia, nausea,|Severe insulin|Aggressive IV fluid|
+|Ketoacidosis (DKA)|vomiting, Kussmaul<br>respirations, fruity breath<br>odor.|deficiency leading to<br>profound<br>hyperglycemia,<br>ketonemia, and<br>metabolic acidosis.|resuscitation (0.9% NaCl),<br>continuous IV insulin<br>infusion, potassium<br>replacement.|
+|Acute Bacterial<br>Meningitis|Fever, severe headache,<br>nuchal rigidity (stiff neck),<br>photophobia, altered mental<br>status.|Bacterial infection of the<br>leptomeninges (e.g., S.<br>pneumoniae, N.<br>meningitidis).|Emergent empiric IV<br>antibiotics (Ceftriaxone +<br>Vancomycin),<br>Dexamethasone.| ||| Section: **Chapter 3: System Diagnostics & Syndrome Arrays**
+
+This section establishes the diagnostic boundaries and high-yield key text markers for RAG chunking verification within block sequence 3.
+
+|**Condition /**|**Presenting Symptoms**|**Probable Cause**|**Standard Solution**|
+|---|---|---|---|
+|**Presentation**||||
+|Acute Coronary|Substernal crushing chest|Myocardial ischemia or|Aspirin, nitroglycerin,|
+|Syndrome (ACS)|pain, radiating to left<br>arm/jaw, diaphoresis,<br>dyspnea.|infarction due to<br>coronary artery<br>occlusion.|supplemental O2 if hypoxic,<br>emergent cardiac<br>catheterization (PCI).|
+|Pulmonary|Sudden-onset pleuritic chest|Thromboembolism|Anticoagulation (LMWH,|
+|Embolism (PE)|pain, tachypnea,<br>tachycardia, hemoptysis,<br>hypoxemia.|obstructing the<br>pulmonary arterial bed.|Unfractionated Heparin),<br>systemic thrombolysis if<br>hemodynamically unstable.|
+
+Confidential — For System Training & Evaluation Only
+
+Page 5 of 22
+
+_This is for informational purposes only. For medical advice or diagnosis, consult a professional. AI responses may include mistakes._
+Clinical RAG Mock Dataset — Reference Manual ||| Section: **Chapter 10: System Diagnostics & Syndrome Arrays**
+
+This section establishes the diagnostic boundaries and high-yield key text markers for RAG chunking verification within block sequence 10.
+
+|**Condition /**|**Presenting Symptoms**|**Probable Cause**|**Standard Solution**|
+|---|---|---|---|
+|**Presentation**||||
+|Acute Coronary|Substernal crushing chest|Myocardial ischemia or|Aspirin, nitroglycerin,|
+|Syndrome (ACS)|pain, radiating to left<br>arm/jaw, diaphoresis,<br>dyspnea.|infarction due to<br>coronary artery<br>occlusion.|supplemental O2 if hypoxic,<br>emergent cardiac<br>catheterization (PCI).|
+|Pulmonary|Sudden-onset pleuritic chest|Thromboembolism|Anticoagulation (LMWH,|
+|Embolism (PE)|pain, tachypnea,<br>tachycardia, hemoptysis,<br>hypoxemia.|obstructing the<br>pulmonary arterial bed.|Unfractionated Heparin),<br>systemic thrombolysis if<br>hemodynamically unstable.|
+
+Confidential — For System Training & Evaluation Only
+
+Page 17 of 22
+
+_This is for informational purposes only. For medical advice or diagnosis, consult a professional. AI responses may include mistakes._
+Clinical RAG Mock Dataset — Reference Manual"

@@ -50,8 +50,17 @@ class Settings(BaseSettings):
     TEMPERATURE: float = Field(default=0.2)
     MAX_TOKENS: int = Field(default=2048)
 
+
+    # RAGAS
+    R_LLM_MODEL: str = Field(default="mistralai/mistral-large-4-1t-a52b")
+    R_LLM_BASE_URL: str = Field(default="https://integrate.api.nvidia.com/v1")
+
+
+
+
     # Secret — comes from .env only
     NVIDIA_API_KEY: str = Field(default="")
+    OPENROUTER_API_KEY: str = Field(default="")
 
 
 # Import this everywhere:  from src.config import settings

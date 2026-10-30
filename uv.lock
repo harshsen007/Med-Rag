@@ -1023,7 +1023,7 @@ requires-dist = [
     { name = "pymupdf4llm", specifier = ">=0.0.17,<2.0" },
     { name = "python-dotenv", specifier = ">=1.0.0" },
     { name = "qdrant-client", specifier = ">=1.12.0" },
-    { name = "ragas", specifier = ">=0.2.0" },
+    { name = "ragas", specifier = ">=0.2.0,<0.3.0" },
 ]
 
 [[package]]
@@ -1693,7 +1693,7 @@ wheels = [
 
 [[package]]
 name = "ragas"
-version = "0.3.1"
+version = "0.2.15"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "appdirs" },
@@ -1709,9 +1709,9 @@ dependencies = [
     { name = "pydantic" },
     { name = "tiktoken" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d2/52/c49cc057a7aa31d094bb286b87d99158c29511a109abe28e9d6ce4ffd3ef/ragas-0.3.1.tar.gz", hash = "sha256:a53c6a137c5eeb9ddf2b9ba0f86385a28172c1cb218aa225fe21c55d8ad2bf2d", size = 159590, upload-time = "2025-08-11T11:15:31.783Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/6c/0f/04fddfa94744b1c3d8901aed8832a6b4193cc8e4886881f1bb88ff055350/ragas-0.2.15.tar.gz", hash = "sha256:2d0cd77b315a9c9c02ceb0a19ca8a48e82e1d02416587a2944ea51e6e327cd7b", size = 40867766, upload-time = "2025-04-24T16:39:28.734Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ff/2e/1e06552b2c2e2b979664ac50492a89f84da51e4b1c16e39364c0ecdc09ae/ragas-0.3.1-py3-none-any.whl", hash = "sha256:b61ba63c56d460e43edb0f99a65559766961ac64e628bc5ccaa61da7e8687fa5", size = 190654, upload-time = "2025-08-11T11:15:30.442Z" },
+    { url = "https://files.pythonhosted.org/packages/f2/9b/a5641da8aab06e069885a9ffa1b4897878f14c5b9807a9e3c5f1f532a6a9/ragas-0.2.15-py3-none-any.whl", hash = "sha256:298cd3d1fe3bd21ca4d31023a55079740d7bdd27a8c915bb371cec3c50cde608", size = 190947, upload-time = "2025-04-24T16:39:25.841Z" },
 ]
 
 [[package]]

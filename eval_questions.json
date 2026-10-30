@@ -1,0 +1,102 @@
+[
+  {
+    "question": "What are the classic presenting symptoms of acute coronary syndrome?",
+    "ground_truth": "Acute coronary syndrome presents with substernal crushing chest pain radiating to the left arm or jaw, diaphoresis, and dyspnea."
+  },
+  {
+    "question": "What is the probable cause of acute coronary syndrome?",
+    "ground_truth": "Myocardial ischemia or infarction due to coronary artery occlusion."
+  },
+  {
+    "question": "How is acute coronary syndrome treated?",
+    "ground_truth": "Treatment is aspirin, nitroglycerin, supplemental oxygen if the patient is hypoxic, and emergent cardiac catheterization (PCI)."
+  },
+  {
+    "question": "What are the symptoms of a heart attack with crushing chest pain spreading to the arm and jaw and sweating?",
+    "ground_truth": "This matches acute coronary syndrome: substernal crushing chest pain radiating to the left arm or jaw, with diaphoresis and dyspnea, caused by myocardial ischemia or infarction from coronary artery occlusion."
+  },
+  {
+    "question": "What are the presenting symptoms of pulmonary embolism?",
+    "ground_truth": "Sudden-onset pleuritic chest pain, tachypnea, tachycardia, hemoptysis, and hypoxemia."
+  },
+  {
+    "question": "How is pulmonary embolism treated, and what changes if the patient is hemodynamically unstable?",
+    "ground_truth": "Treatment is anticoagulation with LMWH or unfractionated heparin. Systemic thrombolysis is used if the patient is hemodynamically unstable."
+  },
+  {
+    "question": "Which condition presents with Kussmaul respirations and a fruity breath odor, and what causes it?",
+    "ground_truth": "Diabetic ketoacidosis (DKA), caused by severe insulin deficiency leading to profound hyperglycemia, ketonemia, and metabolic acidosis."
+  },
+  {
+    "question": "What is the standard treatment for diabetic ketoacidosis?",
+    "ground_truth": "Aggressive IV fluid resuscitation with 0.9% NaCl, a continuous IV insulin infusion, and potassium replacement."
+  },
+  {
+    "question": "What are the presenting symptoms of acute bacterial meningitis?",
+    "ground_truth": "Fever, severe headache, nuchal rigidity (stiff neck), photophobia, and altered mental status."
+  },
+  {
+    "question": "Which organisms cause acute bacterial meningitis and how is it treated?",
+    "ground_truth": "It is a bacterial infection of the leptomeninges, for example by S. pneumoniae or N. meningitidis. It is treated with emergent empiric IV antibiotics (ceftriaxone plus vancomycin) and dexamethasone."
+  },
+  {
+    "question": "A patient has fever, severe headache, a stiff neck and sensitivity to light. Which condition is this and what is the immediate treatment?",
+    "ground_truth": "This is acute bacterial meningitis, treated with emergent empiric IV antibiotics (ceftriaxone plus vancomycin) and dexamethasone."
+  },
+  {
+    "question": "Which condition causes severe epigastric pain radiating to the back that is relieved by leaning forward, and how is it managed?",
+    "ground_truth": "Acute pancreatitis. It is managed with aggressive fluid resuscitation, strict NPO (nil per os), and multimodal analgesia."
+  },
+  {
+    "question": "What causes acute pancreatitis?",
+    "ground_truth": "Autodigestion of pancreatic tissue due to premature activation of enzymes, with gallstones and alcohol as causes."
+  },
+  {
+    "question": "What are the presenting features of sepsis and septic shock?",
+    "ground_truth": "Fever or hypothermia, profound tachycardia, tachypnea, and hypotension that is refractory to fluids."
+  },
+  {
+    "question": "What is the management of sepsis and septic shock?",
+    "ground_truth": "Broad-spectrum IV antibiotics within 1 hour, an IV crystalloid fluid challenge of 30 mL/kg, and vasopressors such as norepinephrine."
+  },
+  {
+    "question": "What is the typical pain pattern of acute appendicitis?",
+    "ground_truth": "Periumbilical pain that migrates to the right lower quadrant (McBurney's point), with anorexia and low-grade fever."
+  },
+  {
+    "question": "What causes acute appendicitis and how is it treated?",
+    "ground_truth": "It is caused by obstruction of the appendiceal lumen leading to inflammation and bacterial overgrowth. Treatment is surgical appendectomy with perioperative prophylactic IV antibiotics."
+  },
+  {
+    "question": "What are the symptoms of community-acquired pneumonia?",
+    "ground_truth": "Productive cough with rusty sputum, fever, chills, pleuritic chest pain, and localized crackles."
+  },
+  {
+    "question": "Which antibiotics are used empirically for community-acquired pneumonia?",
+    "ground_truth": "A macrolide plus a beta-lactam, or a respiratory fluoroquinolone."
+  },
+  {
+    "question": "What are the presenting symptoms of an ischemic stroke?",
+    "ground_truth": "Sudden unilateral facial droop, arm weakness, slurred speech (aphasia), and ataxia."
+  },
+  {
+    "question": "How is an acute ischemic stroke treated and what is the time window for thrombolysis?",
+    "ground_truth": "IV alteplase or tenecteplase if within 4.5 hours of onset and there are no contraindications, and mechanical thrombectomy."
+  },
+  {
+    "question": "What are the features of a COPD exacerbation?",
+    "ground_truth": "Worsening dyspnea, increased sputum volume, sputum purulence, and wheezing."
+  },
+  {
+    "question": "How is a COPD exacerbation treated and what oxygen target is used?",
+    "ground_truth": "Inhaled short-acting bronchodilators, systemic corticosteroids, supplemental oxygen with a target of 88-92%, and antibiotics."
+  },
+  {
+    "question": "Which conditions in the reference involve pleuritic chest pain?",
+    "ground_truth": "Pulmonary embolism, which has sudden-onset pleuritic chest pain, and community-acquired pneumonia, which has pleuritic chest pain along with a productive cough with rusty sputum."
+  },
+  {
+    "question": "Which conditions are treated with thrombolytic therapy?",
+    "ground_truth": "Pulmonary embolism, with systemic thrombolysis if the patient is hemodynamically unstable, and acute ischemic stroke, with IV alteplase or tenecteplase within 4.5 hours if there are no contraindications."
+  }
+]
