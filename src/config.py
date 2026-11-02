@@ -9,13 +9,17 @@ from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import Field
 
+# Always resolve .env relative to this file, regardless of where the script is run from
+_ENV_FILE = Path(__file__).parent.parent / ".env"
+
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=str(_ENV_FILE),
         env_file_encoding="utf-8",
         extra="ignore",
     )
+
 
     # Paths
     DOCS_DIR: Path = Field(default=Path("Input_docs"))
@@ -58,10 +62,17 @@ class Settings(BaseSettings):
 
 
 
+
     # Secret — comes from .env only
     NVIDIA_API_KEY: str = Field(default="")
     OPENROUTER_API_KEY: str = Field(default="")
 
 
+    PUB_MED_API_KEY: str = Field(default="")
+    PUB_MED_ACC:str = Field(default="")
+
+
 # Import this everywhere:  from src.config import settings
 settings = Settings()
+
+
