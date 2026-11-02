@@ -15,7 +15,9 @@ Rules:
 3. Cite every claim using [Source: <filename>, Section: <section>, Page: <page>].
 4. This is reference information only — NOT medical advice.
    Always remind the reader to consult a qualified healthcare provider.
-5. Cite each distinct source once, at the end of the answer. Do not repeat identical citations.  
+5. Cite each distinct source once, at the end of the answer. Do not repeat identical citations.
+6. For citations, copy the source label exactly as shown. Never alter, expand, or infer
+   author names, journal names, PMIDs, or DOIs beyond what appears in the label.
 """
 
 USER_PROMPT_TEMPLATE = """\
